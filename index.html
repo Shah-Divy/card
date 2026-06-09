@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="shortcut icon" href="assets/img/favicon.ico" type="img/png" />
+  <link rel="apple-touch-icon" sizes="57x57" href="assets/img/apple-icon-57x57.png" />
+  <link rel="apple-touch-icon" sizes="60x60" href="assets/img/apple-icon-60x60.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="assets/img/apple-icon-72x72.png" />
+  <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon-76x76.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="assets/img/apple-icon-114x114.png" />
+  <link rel="apple-touch-icon" sizes="120x120" href="assets/img/apple-icon-120x120.png" />
+  <link rel="apple-touch-icon" sizes="144x144" href="assets/img/apple-icon-144x144.png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="assets/img/apple-icon-152x152.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-icon-180x180.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/img/android-icon-192x192.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon-96x96.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="msapplication-TileColor" content="#ffffff" />
+  <meta name="msapplication-TileImage" content="assets/img/ms-icon-144x144.png" />
+  <meta name="theme-color" content="#ffffff" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <title>Business Card</title>
+  <style>
+    body {
+      font-family: "Bricolage Grotesque", sans-serif;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  </style>
+  <script>
+    // Function to generate and download a vCard file
+    function downloadVCard() {
+      const vCardData = `BEGIN:VCARD
+VERSION:3.0
+FN:Jasmin Shah
+N:Shah;Jasmin;;;
+ORG:Shapath Group;
+TITLE:Founder
+EMAIL;TYPE=INTERNET;TYPE=WORK:jasmin@shapathgroup.com
+TEL;TYPE=CELL:+917043023331
+NOTE:Redefining Real Estate with Excellence
+REV:20241216T120000Z
+END:VCARD`;
+
+      // Create a Blob object for the vCard data
+      const blob = new Blob([vCardData], { type: "text/vcard" });
+      const link = document.createElement("a");
+
+      // Set the file name for download
+      link.href = URL.createObjectURL(blob);
+      link.download = "Jasmin_Shah_Shapath_Group.vcf";
+
+      // Programmatically click the link to trigger the download
+      link.click();
+
+      // Cleanup
+      URL.revokeObjectURL(link.href);
+    }
+  </script>
+</head>
+
+<body class="bg-[#003664]">
+  <div class="container">
+    <div class="w-full md:w-[500px] m-auto">
+      <div class="bg-white rounded-b-2xl h-[144px] flex items-baseline justify-center pt-7 mb-5">
+        <img src="images/shapath.jpg" alt="logo" class="text-center" />
+      </div>
+      <div class="bg-white rounded-2xl px-4 md:px-8 pb-8 pt-14 mb-5 text-center relative">
+        <h1 class="text-[#003664] text-3xl font-bold">Shapath Group</h1>
+        <p class="text-[#656565] text-sm md:text-lg tracking-[0.1rem] mt-2">
+          Redefining Real Estate with Excellence
+        </p>
+      </div>
+      <div class="grid grid-cols-2 gap-5 items-center mb-5">
+        <!-- Address -->
+        <a href="https://maps.app.goo.gl/3BuRtaKEpmgVa3wt7" target="_blank" class="block">
+          <div class="flex flex-col items-center justify-center bg-white rounded-xl h-[125px]">
+            <img src="images/appoinment.svg" alt="appoinment" class="mb-3" />
+            <h2 class="text-[#1A1A1A] text-base font-bold">
+              Address
+            </h2>
+          </div>
+        </a>
+
+        <!-- Save Contact -->
+        <button onclick="downloadVCard()"
+          class="flex flex-col items-center justify-center bg-white rounded-xl h-[125px]">
+          <img src="images/vcard.svg" alt="vcard" class="mb-3" />
+          <h2 class="text-[#1A1A1A] text-base font-bold">
+            Save Contact
+          </h2>
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
