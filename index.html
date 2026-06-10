@@ -74,26 +74,30 @@ END:VCARD`;
   </script>
 </head>
 
-<body class="min-h-screen bg-cover bg-center bg-no-repeat" style="background-image: url('images/bg1.jpeg');">
+<body class="min-h-screen bg-no-repeat" style="
+    background-image: url('images/bg1.jpeg');
+    background-position: center top;
+    background-size: cover;
+  ">
 
   <!-- Dark overlay for better contrast -->
   <div class="fixed inset-0 bg-black/20"></div>
 
-  <div class="relative min-h-screen flex items-center justify-center py-8 px-4">
-    <div class="w-full max-w-[540px]">
+  <div class="relative min-h-screen flex items-center justify-center px-4 py-6">
+    <div class="w-full max-w-[540px] mx-auto">
 
       <!-- Logo Card -->
-      <div
-  class="bg-white/90 backdrop-blur-sm rounded-[32px] h-[140px] w-[65%] mx-auto flex items-center justify-center mb-4 shadow-xl">
-  <img
-    src="images/shapath.png"
-    alt="logo"
-    class="max-h-[125px] max-w-[90%] object-contain" />
-</div>
+      <div class="bg-white/90 backdrop-blur-sm rounded-[32px]
+  h-[120px] md:h-[140px]
+  w-[75%] md:w-[65%]
+  mx-auto flex items-center justify-center mb-4 shadow-xl">
+        <img src="images/shapath.png" alt="logo" class="max-h-[125px] max-w-[90%] object-contain" />
+      </div>
 
       <!-- Company Info -->
       <div class="bg-white/90 backdrop-blur-sm rounded-3xl px-6 md:px-10 py-10 mb-6 text-center shadow-xl">
-        <h1 class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#010baf] via-[#5a38d9] to-[#b74df6] bg-clip-text text-transparent">
+        <h1
+          class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#010baf] via-[#5a38d9] to-[#b74df6] bg-clip-text text-transparent">
           Shapath Group
         </h1>
 
