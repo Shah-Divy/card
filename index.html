@@ -31,7 +31,7 @@
 
   <link rel="stylesheet" href="css/style.css" />
 
-  <title>Business Card</title>
+  <title>Shapath Group</title>
 
   <style>
     body {
@@ -48,8 +48,25 @@
   </style>
 
   <script>
-    function downloadVCard() {
-      const vCardData = `BEGIN:VCARD
+    function downloadVCard(name) {
+      let vCardData = "";
+      let filename = "";
+
+      if (name === "jainam") {
+        vCardData = `BEGIN:VCARD
+VERSION:3.0
+FN:Jainam Shah
+N:Shah;Jainam;;;
+ORG:Shapath Group;
+TITLE:Founder
+EMAIL;TYPE=INTERNET;TYPE=WORK:jainam@shapathgroup.com
+TEL;TYPE=CELL:+919825957138
+NOTE:Redefining Real Estate with Excellence
+REV:20241216T120000Z
+END:VCARD`;
+        filename = "Jainam_Shah_Shapath_Group.vcf";
+      } else {
+        vCardData = `BEGIN:VCARD
 VERSION:3.0
 FN:Jasmin Shah
 N:Shah;Jasmin;;;
@@ -60,12 +77,14 @@ TEL;TYPE=CELL:+917043023331
 NOTE:Redefining Real Estate with Excellence
 REV:20241216T120000Z
 END:VCARD`;
+        filename = "Jasmin_Shah_Shapath_Group.vcf";
+      }
 
       const blob = new Blob([vCardData], { type: "text/vcard" });
       const link = document.createElement("a");
 
       link.href = URL.createObjectURL(blob);
-      link.download = "Jasmin_Shah_Shapath_Group.vcf";
+      link.download = filename;
 
       link.click();
 
@@ -90,19 +109,38 @@ END:VCARD`;
       </div>
 
       <!-- Company Info -->
-      <div class="bg-white/90 backdrop-blur-sm rounded-3xl px-6 md:px-10 py-10 mb-6 text-center shadow-xl">
+      <div class="bg-white/90 backdrop-blur-sm rounded-3xl px-6 md:px-10 py-8 mb-6 text-center shadow-xl">
+
         <h1
           class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#010baf] via-[#5a38d9] to-[#b74df6] bg-clip-text text-transparent">
           Shapath Group
         </h1>
 
-        <p class="text-[#656565] text-base md:text-xl tracking-wider mt-3">
+        <p class="text-[#656565] text-sm md:text-lg tracking-[0.08rem] mt-3">
           Redefining Real Estate with Excellence
         </p>
+
+        <p class="text-[#7a7a7a] text-[11px] md:text-sm mt-1 leading-relaxed">
+          105 Utsav Prime, Khed Tasiya Road, Himmatnagar
+        </p>
+
       </div>
 
       <!-- Action Buttons -->
-      <div class="grid grid-cols-2 gap-5">
+      <div class="grid grid-cols-3 gap-5">
+
+        <button onclick="downloadVCard('jainam')"
+          class="bg-white/90 backdrop-blur-sm rounded-2xl h-[140px] flex flex-col items-center justify-center shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+
+          <img src="images/appoinment.png" alt="Save Contact" class="mb-3 w-14 h-14" />
+
+          <h2 class="text-[#1A1A1A] text-lg font-bold">
+            Save Contact
+            <br>
+            <span class="text-[#656565] text-base md:text-xl">Jainam Shah</span>
+          </h2>
+
+        </button>
 
         <!-- Address -->
         <a href="https://maps.app.goo.gl/3BuRtaKEpmgVa3wt7" target="_blank" class="block">
@@ -120,13 +158,15 @@ END:VCARD`;
         </a>
 
         <!-- Save Contact -->
-        <button onclick="downloadVCard()"
+        <button onclick="downloadVCard('jasmin')"
           class="bg-white/90 backdrop-blur-sm rounded-2xl h-[140px] flex flex-col items-center justify-center shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
 
           <img src="images/appoinment.png" alt="Save Contact" class="mb-3 w-14 h-14" />
 
           <h2 class="text-[#1A1A1A] text-lg font-bold">
             Save Contact
+            <br>
+            <span class="text-[#656565] text-base md:text-xl">Jasmin Shah</span>
           </h2>
 
         </button>
